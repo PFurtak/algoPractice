@@ -25,9 +25,19 @@ Return the reversedArr array
 const reverseIntegers = (arr) => {
   let reversedArr = [];
   for (let i = 0; i < arr.length; i++) {
-    reversedArr.unshift(arr[i]); //unshift is O(n) | Maybe I can get an O(1) solution by iterating backwards and pushing instead...
+    reversedArr.unshift(arr[i]); //unshift is O(n) | Maybe I can get an O(1) solution here by iterating backwards and pushing instead...
   }
   return reversedArr;
 };
 
+reverseIntegers([1, 4, 3, 2]);
+
+// Refactor for better time complexity
+const reverseIntegers = (arr) => {
+  let reversedArr = [];
+  for (i = arr.length - 1; i >= 0; i--) {
+    reversedArr.push(arr[i]); //iterating backwards and pushing to an array is slightly faster
+  }
+  return reversedArr;
+};
 reverseIntegers([1, 4, 3, 2]);
