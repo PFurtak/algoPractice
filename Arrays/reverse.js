@@ -38,6 +38,7 @@ const reverseIntegers = (arr) => {
   for (i = arr.length - 1; i >= 0; i--) {
     reversedArr.push(arr[i]); //iterating backwards and pushing to an array is slightly faster
   }
-  return reversedArr;
+  let string = reversedArr.join(' '); // reviewed problem, realized the output should have been a string of all elements in the array and spaced apart.
+  return string;
 };
 reverseIntegers([1, 4, 3, 2]);
