@@ -20,7 +20,7 @@ Return the reversedArr array
  */
 }
 
-//My first solution
+// My first solution
 
 const reverseIntegers = (arr) => {
   let reversedArr = [];
