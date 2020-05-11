@@ -14,7 +14,6 @@ Return true if and only if the given array A is monotonic. */
 // output is boolean true or false
 // if the numbers in the array are increasing or decreasing as you move through the array, return true
 // loop through the input array, compare indicies to see if they are less than or equal to, or greater than or equal to and return true
-// looks like a nested loop is exprected
 
 // Example 1:
 // Input: [1,3,2]
@@ -30,19 +29,16 @@ Return true if and only if the given array A is monotonic. */
 
 // My first submission
 // returns true even on non monotonic arrays.
-// need to revisit
+
+// need to revisit ** Didn't need a nested loop **
+
 var isMonotonic = function (A) {
-  for (i = A.length - 1; i >= 0; i--) {
-    for (j = 0; j <= A.length; i++) {
-      if (A[i] <= A[j]) {
-        return true;
-      } else if (i <= j) {
-        return true;
-      } else if (A[i] >= A[j]) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+  increasing = true;
+  decreasing = true;
+
+  for (i = 0; i < A.length - 1; i++) {
+    if (A[i] > A[i + 1]) increasing = false;
+    if (A[i] < A[i + 1]) decreasing = false;
   }
+  return increasing || decreasing;
 };
