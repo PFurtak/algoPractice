@@ -28,9 +28,18 @@ let missingNumber = function (inputArray) {
   let missingNum = null;
   inputArray.sort((a, b) => a - b);
 
-  for (let i = 0; i < inputArray.length - 1; i++) {
-    if (inputArray[i] + 1 !== inputArray[i + 1]) missingNum = inputArray[i] + 1;
-  }
+  if (inputArray.length === 1 && inputArray[0] > 0) {
+    missingNum = inputArray[0] - 1;
+  } else if (inputArray.length === 1 && inputArray[0] <= 0) {
+    missingNum = inputArray[0] + 1;
+  } else
+    for (let i = 0; i < inputArray.length - 1; i++) {
+      if (inputArray[i] + 1 !== inputArray[i + 1]) {
+        missingNum = inputArray[i] + 1;
+      } else if (inputArray[i] + 1 === inputArray[i + 1]) {
+        missingNum = inputArray[inputArray.length] + 1;
+      }
+    }
   return missingNum;
 };
 
