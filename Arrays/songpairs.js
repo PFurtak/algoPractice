@@ -29,15 +29,19 @@ Note:
 // when loops are finished, return the temp array's length divided by 2
 
 //Brute force, works on test case.... leetcodes test fails with a javascript heap out of memory error... will revisit
+
+// Refactored to use a counter, far fewer operations to do than the arrays approach. Still O(n)^2
 var numPairsDivisibleBy60 = function (time) {
-  let tempArr = [];
+  let count = 0;
 
   for (i = 0; i < time.length; i++) {
     for (j = i + 1; j < time.length; j++) {
       if ((time[i] + time[j]) % 60 == 0) {
-        tempArr.push(time[i], time[j]);
+        count++;
       }
     }
   }
-  return tempArr.length / 2;
+  return count;
 };
+
+//Hash map would be the faster solution. Will revisit.
